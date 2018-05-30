@@ -6,9 +6,89 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    d:DesignWidth="800"
+    d:DesignHeight="200"
+    Margin="10">
 
-    <Grid>
+    <Grid VerticalAlignment="Center">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
 
+        <TextBlock 
+            VerticalAlignment="Center"
+            Text="Source MDF Image File (*.mdf)"
+            HorizontalAlignment="Center"
+            Grid.Row="0"
+            Grid.Column="0"/>
+        <TextBox 
+            Name="MDFPathBox"
+            Margin="5" 
+            Grid.Row="0"
+            Grid.Column="1"/>
+        <Button 
+            Name="MDFSelectButton"
+            Click="MDFSelectButton_Click"
+            Content="Select"
+            Grid.Row="0"
+            Grid.Column="2"/>
+
+        <TextBlock 
+            VerticalAlignment="Center"
+            Text="Target ISO Image File (*.iso)"
+            HorizontalAlignment="Center"
+            Grid.Row="1"
+            Grid.Column="0"/>
+        <TextBox 
+            Name="ISOPathBox"
+            Margin="5"
+            Grid.Row="1"
+            Grid.Column="1"/>
+        <Button 
+            Name="ISOSelectButton"
+            Click="ISOSelectButton_Click"
+            Content="Select"
+            Grid.Row="1"
+            Grid.Column="2"/>
+
+        <ProgressBar 
+            Grid.Row="2"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            Height="20"
+            Width="500"
+            Visibility="Collapsed"/>
+
+        <StackPanel
+            HorizontalAlignment="Center"
+            Orientation="Horizontal"
+            Grid.Row="3"
+            Grid.Column="0"
+            Grid.ColumnSpan="3">
+            <Button
+                Name="CancelButton"
+                IsEnabled="False"
+                Click="CancelButton_Click"
+                Margin="10">
+                Cancel
+            </Button>
+            <Button
+                Name="ConvertButton"
+                Click="ConvertButton_Click"
+                Margin="10">
+                Convert
+            </Button>
+        </StackPanel>
+        
+        
     </Grid>
 </Page>
