@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -23,6 +25,9 @@ namespace Mdf2IsoUWP
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        public StorageFile MdfFile { get; set; } = null;
+        public StorageFile IsoFile { get; set; } = null;
+
         public MainPage()
         {
             this.InitializeComponent();
@@ -31,14 +36,37 @@ namespace Mdf2IsoUWP
             ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
         }
 
-        private void MDFSelectButton_Click(object sender, RoutedEventArgs e)
+        private async Task MDFSelectButton_ClickAsync(object sender, RoutedEventArgs e)
         {
+            var picker = new Windows.Storage.Pickers.FileOpenPicker
+            {
+                SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.ComputerFolder,
+                FileTypeFilter = {".mdf"}
+            };
 
+            StorageFile file = await picker.PickSingleFileAsync();
+            if (file != null)
+            {
+                MdfFile = file;
+                MdfPathBox.Text = file.Name;
+            }
         }
 
-        private void ISOSelectButton_Click(object sender, RoutedEventArgs e)
+        private async Task ISOSelectButton_Click(object sender, RoutedEventArgs e)
         {
+            var picker = new Windows.Storage.Pickers.FileSavePicker
+            {
+                FileTypeChoices = {
+                    ["ISO image file"] = { ".iso" }
+                }
+            };
 
+            StorageFile file = await picker.PickSaveFileAsync();
+            if (file != null)
+            {
+                IsoFile = file;
+                IsoPathBox.Text = file.Name;
+            }
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
@@ -48,7 +76,7 @@ namespace Mdf2IsoUWP
 
         private void ConvertButton_Click(object sender, RoutedEventArgs e)
         {
-
+           
         }
     }
 }

@@ -31,7 +31,8 @@
             Grid.Row="0"
             Grid.Column="0"/>
         <TextBox 
-            Name="MDFPathBox"
+            Name="MdfPathBox"
+            IsReadOnly="True"
             Margin="5" 
             Grid.Row="0"
             Grid.Column="1"/>
@@ -49,7 +50,8 @@
             Grid.Row="1"
             Grid.Column="0"/>
         <TextBox 
-            Name="ISOPathBox"
+            Name="IsoPathBox"
+            IsReadOnly="True"
             Margin="5"
             Grid.Row="1"
             Grid.Column="1"/>
