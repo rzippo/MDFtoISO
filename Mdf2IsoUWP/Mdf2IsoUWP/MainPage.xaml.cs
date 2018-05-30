@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage;
+using Windows.UI.Popups;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -36,7 +37,7 @@ namespace Mdf2IsoUWP
             ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
         }
 
-        private async Task MDFSelectButton_ClickAsync(object sender, RoutedEventArgs e)
+        private async void MdfSelectButton_ClickAsync(object sender, RoutedEventArgs e)
         {
             var picker = new Windows.Storage.Pickers.FileOpenPicker
             {
@@ -52,14 +53,13 @@ namespace Mdf2IsoUWP
             }
         }
 
-        private async Task ISOSelectButton_Click(object sender, RoutedEventArgs e)
+        private async void IsoSelectButton_ClickAsync(object sender, RoutedEventArgs e)
         {
             var picker = new Windows.Storage.Pickers.FileSavePicker
             {
-                FileTypeChoices = {
-                    ["ISO image file"] = { ".iso" }
-                }
+                SuggestedFileName = MdfFile?.DisplayName ?? ""
             };
+            picker.FileTypeChoices.Add("ISO image file", new List<String>(){ ".iso" });
 
             StorageFile file = await picker.PickSaveFileAsync();
             if (file != null)
@@ -74,9 +74,17 @@ namespace Mdf2IsoUWP
 
         }
 
-        private void ConvertButton_Click(object sender, RoutedEventArgs e)
+        private async void ConvertButton_ClickAsync(object sender, RoutedEventArgs e)
         {
-           
+            if(MdfFile != null && IsoFile != null)
+            {
+                await Mdf2IsoConverter.ConvertAsync(MdfFile, IsoFile);
+
+                var dialog = new MessageDialog("Conversion completed!");
+                await dialog.ShowAsync();
+            }
         }
+
+
     }
 }

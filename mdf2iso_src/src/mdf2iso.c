@@ -223,6 +223,7 @@ main (int argc, char **argv)
 	}
 	else
 	{
+		//Here options are checked
 		for (i = 0; i < argc; i++)
 		{
 			if (!strcmp (argv[i], "--help"))
@@ -230,11 +231,13 @@ main (int argc, char **argv)
 				usage ();
 				exit (EXIT_SUCCESS);
 			}
+
 			if (!strcmp (argv[i], "--cue"))
 			{
 				cue = 1;
 				opts++;
 			}
+
 			if (!strcmp (argv[i], "--toc"))
 			{
 				toc = 1;
@@ -254,6 +257,7 @@ main (int argc, char **argv)
 			exit (EXIT_FAILURE);
 		}
 
+		//Here destination filename is determined
 		if (argc >= (3 + opts))
 			strcpy (destfilename, argv[2 + opts]);
 		else
@@ -268,6 +272,7 @@ main (int argc, char **argv)
 				strcpy (destfilename + strlen (argv[1 + opts]) - 4, ".iso");
 		}
 		
+		//Here the conversion is done
 		if ((fsource = fopen (argv[1 + opts], "rb")) != NULL)
 		{
 			fseek (fsource, 32768, SEEK_CUR);

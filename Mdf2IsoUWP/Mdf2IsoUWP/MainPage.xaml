@@ -37,8 +37,8 @@
             Grid.Row="0"
             Grid.Column="1"/>
         <Button 
-            Name="MDFSelectButton"
-            Click="MDFSelectButton_Click"
+            Name="MdfSelectButton"
+            Click="MdfSelectButton_ClickAsync"
             Content="Select"
             Grid.Row="0"
             Grid.Column="2"/>
@@ -56,8 +56,8 @@
             Grid.Row="1"
             Grid.Column="1"/>
         <Button 
-            Name="ISOSelectButton"
-            Click="ISOSelectButton_Click"
+            Name="IsoSelectButton"
+            Click="IsoSelectButton_ClickAsync"
             Content="Select"
             Grid.Row="1"
             Grid.Column="2"/>
@@ -85,7 +85,7 @@
             </Button>
             <Button
                 Name="ConvertButton"
-                Click="ConvertButton_Click"
+                Click="ConvertButton_ClickAsync"
                 Margin="10">
                 Convert
             </Button>
