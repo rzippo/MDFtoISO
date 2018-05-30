@@ -1,0 +1,27 @@
+v0.3.0 22/05/05 
+	
+	Added create TOC file 
+	Added build system (automake/autoconf)
+	Added support errno system call		
+
+v0.2.2 29/03/05
+
+	Added support for LFS (Large File Support)
+
+v0.2.1 09/12/04   
+	
+	Fixed convert mdf CD-DA image in CD-DA
+	Fixed fclose file caused "segment fault" under linux
+	Added progress bar
+	Added verbose mode
+
+v0.2 05/12/04 
+
+	Fixed Makefile
+	Fixed Bug #002826 (Segment fault under linux)
+	Added create cuesheet (only for data cd)
+	Added detect iso-9660 image
+	Added convert mdf CD-DA image in CD-DA (use only for test)
+	 
+
+v0.1 first release
