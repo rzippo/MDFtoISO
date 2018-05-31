@@ -391,20 +391,22 @@ main (int argc, char **argv)
 				for (i = 0; i < source_length; i++)
 				{
 					fseek (fsource, seek_head, SEEK_CUR);
-					if (fread (buf, sizeof (char), sector_data, fsource));
-
+					if (fread (buf, sizeof (char), sector_data, fsource))
+					{}
 					else
-						{
-					printf ("%s\n", strerror (errno));
-					exit (EXIT_FAILURE);
-						};
-					if (fwrite (buf, sizeof (char), sector_data, fdest));
+					{
+						printf ("%s\n", strerror (errno));
+						exit (EXIT_FAILURE);
+					};
 
+					if (fwrite (buf, sizeof (char), sector_data, fdest))
+					{}
 					else
-						{
-					printf ("%s\n", strerror (errno));
-					exit (EXIT_FAILURE);
-						};
+					{
+						printf ("%s\n", strerror (errno));
+						exit (EXIT_FAILURE);
+					};
+					
 					fseek (fsource, seek_ecc, SEEK_CUR);
 					write_iso = (int) (sector_data * i);
 					if (i != 0)
