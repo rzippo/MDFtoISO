@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading;
 using System.Threading.Tasks;
+using Mdf2IsoUWP.CustomControls;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage;
+using Windows.System.Threading;
 using Windows.UI.Popups;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
@@ -29,6 +32,8 @@ namespace Mdf2IsoUWP
         public StorageFile MdfFile { get; set; } = null;
         public StorageFile IsoFile { get; set; } = null;
 
+        private CancellationTokenSource TokenSource = new CancellationTokenSource();
+
         public MainPage()
         {
             this.InitializeComponent();
@@ -41,7 +46,6 @@ namespace Mdf2IsoUWP
         {
             var picker = new Windows.Storage.Pickers.FileOpenPicker
             {
-                SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.ComputerFolder,
                 FileTypeFilter = {".mdf"}
             };
 
@@ -71,20 +75,32 @@ namespace Mdf2IsoUWP
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
-
+            TokenSource.Cancel();
+            TokenSource = new CancellationTokenSource();
         }
 
         private async void ConvertButton_ClickAsync(object sender, RoutedEventArgs e)
         {
             if(MdfFile != null && IsoFile != null)
             {
-                await Mdf2IsoConverter.ConvertAsync(MdfFile, IsoFile);
+                ConversionProgressBar.Visibility = Visibility.Visible;
+                var progress = new Progress<int>(
+                    percent => ConversionProgressBar.Value = percent );
+
+                CancelButton.IsEnabled = true;
+
+                await Task.Run(() => Mdf2IsoConverter.ConvertAsync(
+                    MdfFile,
+                    IsoFile,
+                    progress,
+                    token: TokenSource.Token
+                    ).Wait());
 
                 var dialog = new MessageDialog("Conversion completed!");
                 await dialog.ShowAsync();
+
+                CancelButton.IsEnabled = false;
             }
         }
-
-
     }
 }
