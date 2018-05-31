@@ -77,6 +77,7 @@ namespace Mdf2IsoUWP
                     percent => ConversionProgressBar.Value = percent );
 
                 CancelButton.IsEnabled = true;
+                ConvertButton.IsEnabled = false;
                 
                 await Task.Run(() => Mdf2IsoConverter.ConvertAsync(
                     MdfFile,
@@ -86,10 +87,12 @@ namespace Mdf2IsoUWP
                     token: TokenSource.Token
                     ).Wait());
 
-                var dialog = new MessageDialog("Conversion completed!");
+                string message = (ConversionProgressBar.Value == ConversionProgressBar.Maximum) ? "Conversion completed!" : "Conversion terminated, see log for details.";
+                var dialog = new MessageDialog(message);
                 await dialog.ShowAsync();
 
                 CancelButton.IsEnabled = false;
+                ConvertButton.IsEnabled = true;
             }
         }
 
