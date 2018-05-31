@@ -1,0 +1,26 @@
+﻿<ContentDialog
+    x:Class="Mdf2IsoUWP.InfoDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+   
+    PrimaryButtonText="Ok"
+    IsPrimaryButtonEnabled="True"
+    >
+
+    <Grid>
+        <TextBlock 
+            VerticalAlignment="Center"
+            TextAlignment="Center"
+            TextWrapping="WrapWholeWords">
+                MDF to ISO by Raffaele Zippo<LineBreak/>
+                This is a UWP port of <Hyperlink NavigateUri="http://www.mdftoiso.com/">mdf2iso</Hyperlink> by Salvatore Santagati<LineBreak/>
+                <LineBreak/>
+                This software is licensed under <Hyperlink NavigateUri="https://choosealicense.com/licenses/gpl-3.0/#">GPL v3.0</Hyperlink> , and its source code can be found on GitHub.<LineBreak/>
+                <LineBreak/>
+                Icons for this app were made by editing together works by <Hyperlink NavigateUri="http://www.freepik.com/">Freepik</Hyperlink> from <Hyperlink NavigateUri="http://www.flaticon.com/">www.flaticon.com</Hyperlink>
+        </TextBlock>
+    </Grid>
+</ContentDialog>

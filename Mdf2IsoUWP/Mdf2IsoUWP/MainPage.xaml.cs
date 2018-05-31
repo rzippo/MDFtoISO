@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading;
 using System.Threading.Tasks;
@@ -101,6 +102,12 @@ namespace Mdf2IsoUWP
 
                 CancelButton.IsEnabled = false;
             }
+        }
+
+        private async void Info_OnClick(object sender, RoutedEventArgs e)
+        {
+            var infoDialog = new InfoDialog();
+            await infoDialog.ShowAsync();
         }
     }
 }
