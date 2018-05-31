@@ -27,7 +27,7 @@ namespace Mdf2IsoUWP
         {
             this.InitializeComponent();
 
-            ApplicationView.PreferredLaunchViewSize = new Size(700, 300);
+            ApplicationView.PreferredLaunchViewSize = new Size(700, 500);
             ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
         }
 
