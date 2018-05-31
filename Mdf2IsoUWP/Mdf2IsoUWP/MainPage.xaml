@@ -23,7 +23,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <TextBlock 
@@ -82,6 +82,13 @@
             Grid.Row="3"
             Grid.Column="0"
             Grid.ColumnSpan="3">
+            <CheckBox
+                Name="ShowLogCheck"
+                IsChecked="False"
+                Checked="ShowLogCheck_Change"
+                Unchecked="ShowLogCheck_Change">
+                Show log
+            </CheckBox>
             <Button 
                 Margin="10"
                 Click="Info_OnClick">
@@ -102,18 +109,17 @@
             </Button>
         </StackPanel>
 
-        <!--
-        <ScrollViewer
+        <local:LogViewer
+            x:Name="LogViewer"
             Grid.Row="4"
             Grid.Column="0"
             Grid.ColumnSpan="3"
             Margin="15"
-            Height="80">
-            <customControls:LogBox 
-                Name="LogTextBox">
-            </customControls:LogBox>
-        </ScrollViewer>
-        -->
+            MinHeight="150"
+            Visibility="Collapsed"/>
+            
     </Grid>
 </Page>
+
+
 

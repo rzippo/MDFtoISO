@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Windows.Storage;
@@ -175,17 +173,13 @@ namespace Mdf2IsoUWP
                             //409
                             sourceStream.Seek(seekEcc, SeekOrigin.Current);
 
-                            if (progress != null)
+                            int currentStep = (int)(i * ProgressMax / sourceSectorLength);
+                            if (currentStep > lastReported)
                             {
-                                int currentStep = (int) (i * ProgressMax / sourceSectorLength);
-                                if (currentStep > lastReported)
-                                {
-                                    progress.Report(currentStep);
-                                    lastReported = currentStep;
-                                }
+                                progress?.Report(currentStep);
+                                log?.WriteLine($"Conversion {currentStep}% done");
+                                lastReported = currentStep;
                             }
-
-                            log?.WriteLine($"{i + 1} sectors out of {sourceSectorLength} done");
                         }
                         //416
 
@@ -197,7 +191,7 @@ namespace Mdf2IsoUWP
             }
             catch (OperationCanceledException)
             {
-                log?.WriteLine("Conversion cancelled.");
+                log?.WriteLine("Conversion cancelled by user.");
             }
         }
     }
