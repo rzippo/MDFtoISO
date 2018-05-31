@@ -18,7 +18,8 @@
                 MDF to ISO by Raffaele Zippo<LineBreak/>
                 This is a UWP port of <Hyperlink NavigateUri="http://www.mdftoiso.com/">mdf2iso</Hyperlink> by Salvatore Santagati<LineBreak/>
                 <LineBreak/>
-                This software is licensed under <Hyperlink NavigateUri="https://choosealicense.com/licenses/gpl-3.0/#">GPL v3.0</Hyperlink> , and its source code can be found on GitHub.<LineBreak/>
+                This software is licensed under <Hyperlink NavigateUri="https://choosealicense.com/licenses/gpl-3.0/#">GPL v3.0</Hyperlink> ,
+                and its source code can be found on <Hyperlink NavigateUri="https://github.com/rzippo/Mdf2IsoUWP">GitHub</Hyperlink>.<LineBreak/>
                 <LineBreak/>
                 Icons for this app were made by editing together works by <Hyperlink NavigateUri="http://www.freepik.com/">Freepik</Hyperlink> from <Hyperlink NavigateUri="http://www.flaticon.com/">www.flaticon.com</Hyperlink>
         </TextBlock>
