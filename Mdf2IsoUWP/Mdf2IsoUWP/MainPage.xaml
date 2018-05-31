@@ -8,8 +8,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-    d:DesignWidth="800"
-    d:DesignHeight="400"
+    d:DesignWidth="700"
+    d:DesignHeight="300"
     Margin="10">
 
     <Grid VerticalAlignment="Center">
@@ -28,7 +28,7 @@
 
         <TextBlock 
             VerticalAlignment="Center"
-            Text="Source MDF Image File (*.mdf)"
+            Text="Source MDF Disk Image File (*.mdf)"
             HorizontalAlignment="Center"
             Grid.Row="0"
             Grid.Column="0"/>
@@ -47,7 +47,7 @@
 
         <TextBlock 
             VerticalAlignment="Center"
-            Text="Target ISO Image File (*.iso)"
+            Text="Destination ISO Disk Image File (*.iso)"
             HorizontalAlignment="Center"
             Grid.Row="1"
             Grid.Column="0"/>
@@ -73,6 +73,7 @@
             Grid.ColumnSpan="3"
             Height="20"
             Width="500"
+            Margin="5"
             Visibility="Collapsed"/>
 
         <StackPanel
