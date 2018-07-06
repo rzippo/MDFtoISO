@@ -23,14 +23,14 @@ namespace Mdf2IsoUWP
 
         public LogViewer()
         {
-            this.InitializeComponent();
+            InitializeComponent();
         }
 
-        class LogStream : Stream
+        private class LogStream : Stream
         {
-            MemoryStream ms = new MemoryStream();
+            private readonly MemoryStream ms = new MemoryStream();
 
-            public TextBlock LogBlock { get; set; }
+            public TextBlock LogBlock { private get; set; }
 
             public override void Flush()
             {

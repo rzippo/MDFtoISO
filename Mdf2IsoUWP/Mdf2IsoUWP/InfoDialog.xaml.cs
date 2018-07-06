@@ -11,7 +11,7 @@ namespace Mdf2IsoUWP
     {
         public InfoDialog()
         {
-            this.InitializeComponent();
+            InitializeComponent();
         }
     }
 }

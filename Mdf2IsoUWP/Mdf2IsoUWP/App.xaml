@@ -1,8 +1,6 @@
 ﻿<Application
     x:Class="Mdf2IsoUWP.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Mdf2IsoUWP"
-    >
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     
 </Application>
