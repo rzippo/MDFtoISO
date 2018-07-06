@@ -5,7 +5,7 @@ This app collects data for the following means, explained in detail below:
 * Telemetry
 * Error reporting
 
-This data is collected through Windows API, and most can be disabled though Windows settings.
+This data is collected through Windows API, and most can be disabled through Windows settings.
 In particular for points 2 and 3, please consider enabling them as they are an important tool to the app developement and continued support.
 
 In any case, no data about the user's files are collected or store or sent.
