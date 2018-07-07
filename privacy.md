@@ -10,12 +10,12 @@ In particular for points 2 and 3, please consider enabling them as they are an i
 
 In any case, no data about the user's files are collected or store or sent.
 
-#Advertising
+# Advertising
 The app includes an ad banner, from the Microsoft Advertising SDK. 
 This could use cookies and or other identifying information to deliver pertinent ads.
 You can check within Windows settings what data is collected or shared through and for ads.
 
-#Telemetry
+# Telemetry
 This apps collects generic non-identifying data about the usage of the app.
 This is done by reporting that an event has happend, for example:
 * A conversion was completed
@@ -27,7 +27,7 @@ No other data about the event is collected except that it happened, where (which
 Collected data is available to the developer only in an aggregated form e.g. "In Italy, 100 conversions were completed today".
 This data is used to understand how the app is used and what should be improved.
 
-#Error reporting
+# Error reporting
 If an error occurs, Windows may collect data about the error and make that data available to the developer.
 If error reporting is disabled the developer will only see that "an unknown error" has happened somewhere.
 
