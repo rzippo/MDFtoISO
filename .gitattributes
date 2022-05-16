@@ -1,3 +1,6 @@
+# Force repo language as C#
+*.* linguist-language=C#
+
 ###############################################################################
 # Set default behavior to automatically normalize line endings.
 ###############################################################################
